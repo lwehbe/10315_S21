@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>Lectures_05_06_Naive_Bayes slides</title>
+<title>Lectures_5_Naive_Bayes_pdf_export slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13202,7 +13202,7 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1><center> 10-315 Introduction to Machine Learning (SCS Majors) <br> Lectures 5 and 6: Naive Bayes </center></h1><h2><center> Leila Wehbe <br> Carnegie Mellon University  <br> Machine Learning Department </center></h2><p>Reading: &lt;a href ="<a href="http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;">http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;</a> Generative and Disciminative Classifiers &lt;/a&gt; by Tom Mitchell.</p>
+<h1><center> 10-315 Introduction to Machine Learning (SCS Majors) <br> Lectures 5: Naive Bayes </center></h1><h2><center> Leila Wehbe <br> Carnegie Mellon University  <br> Machine Learning Department </center></h2><p>Reading: &lt;a href ="<a href="http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;">http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;</a> Generative and Disciminative Classifiers &lt;/a&gt; by Tom Mitchell.</p>
 <h4 id="Lecture-outcomes:">Lecture outcomes:<a class="anchor-link" href="#Lecture-outcomes:">&#182;</a></h4><ul>
 <li>Conditional Independence</li>
 <li>Naïve Bayes, Gaussian Naive Bayes</li>
@@ -14287,62 +14287,63 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> Data </th></tr>
-<tr><td>
-<!-- 
-|var| def|
-|-|-|
-|O| Is older than 35|
-|S|  Is a student| 
-|J| Birthday before July 1|
-|Y| buys computer|
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$$P(Y=1) = $$</td>
+<td></td>
+<td>$$P(Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(O=1</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(O=1</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(O=0</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(O=0</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(S=1</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(S=1</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(S=0</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(S=0</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(J=1</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(J=1</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(J=0</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(J=0</td>
+<td>Y=0) = $$</td>
+</tr>
+</tbody>
+</table>
 
-</td><td> -->
-
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|$$P(Y=1) = $$| |$$P(Y=0) = $$ |
-|$$P(O=1|Y=1) = $$| |$$P(O=1|Y=0) = $$ |
-|$$P(O=0|Y=1) = $$| |$$P(O=0|Y=0) = $$ |
-|$$P(S=1|Y=1) = $$| |$$P(S=1|Y=0) = $$ |
-|$$P(S=0|Y=1) = $$| |$$P(S=0|Y=0) = $$ |
-|$$P(J=1|Y=1) = $$| |$$P(J=1|Y=0) = $$ |
-|$$P(J=0|Y=1) = $$| |$$P(J=0|Y=0) = $$ |
-
-
-
-<!-- \begin{eqnarray}
-    P(Y=1) &=&  & | &  P(Y=0) &=&  \\
-    P(O=1|Y=1) &=&  & | &  P(O=1|Y=0) &=&  \\
-    P(O=0|Y=1) &=&  & | &  P(O=0|Y=0) &=&  \\
-    P(S=1|Y=1) &=&  & | &  P(S=1|Y=0) &=&  \\
-    P(S=0|Y=1) &=&  & | &  P(S=0|Y=0) &=&  \\
-    P(J=1|Y=1) &=&  & | &  P(J=1|Y=0) &=&  \\
-    P(J=0|Y=1) &=&  & | &  P(J=0|Y=0) &=&  \\
-    \end{eqnarray} -->
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|0|0|**0**|
-|0|0|1|**0**|
-|0|0|0|**0**|
-|1|1|1|**0**|
-|1|0|0|**0**|
-| | | | | |
-| | | | | |
-|0|1|0|**1**|
-|1|0|1|**1**|
-|1|0|1|**1**|
-|1|1|0|**1**|
-|0|1|1|**1**|
-|0|1|0|**1**|
-|0|1|1|**1**|
-|1|0|1|**1**|
-|0|1|0|**1**|
-
-</td></tr> </table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -14351,42 +14352,63 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> Data </th></tr>
-<tr><td>
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=darkred>$$P(Y=1) = 9/14$$</font></td>
+<td></td>
+<td><font color=darkred>$$P(Y=0) = 5/14$$</font></td>
+</tr>
+<tr>
+<td>$$P(O=1</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(O=1</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(O=0</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(O=0</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(S=1</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(S=1</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(S=0</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(S=0</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(J=1</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(J=1</td>
+<td>Y=0) = $$</td>
+</tr>
+<tr>
+<td>$$P(J=0</td>
+<td>Y=1) = $$</td>
+<td></td>
+<td>$$P(J=0</td>
+<td>Y=0) = $$</td>
+</tr>
+</tbody>
+</table>
 
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|<font color=darkred>$$P(Y=1) = 9/14$$</font>| | <font color=darkred>$$P(Y=0) = 5/14$$</font>|
-|$$P(O=1|Y=1) = $$| |$$P(O=1|Y=0) = $$ |
-|$$P(O=0|Y=1) = $$| |$$P(O=0|Y=0) = $$ |
-|$$P(S=1|Y=1) = $$| |$$P(S=1|Y=0) = $$ |
-|$$P(S=0|Y=1) = $$| |$$P(S=0|Y=0) = $$ |
-|$$P(J=1|Y=1) = $$| |$$P(J=1|Y=0) = $$ |
-|$$P(J=0|Y=1) = $$| |$$P(J=0|Y=0) = $$ |
-
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|0|0|**0**|
-|0|0|1|**0**|
-|0|0|0|**0**|
-|1|1|1|**0**|
-|1|0|0|**0**|
-| | | | | |
-| | | | | |
-|0|1|0|**1**|
-|1|0|1|**1**|
-|1|0|1|**1**|
-|1|1|0|**1**|
-|0|1|1|**1**|
-|0|1|0|**1**|
-|0|1|1|**1**|
-|1|0|1|**1**|
-|0|1|0|**1**|
-
-</td></tr> </table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -14395,42 +14417,63 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> Data </th></tr>
-<tr><td>
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=darkred>P(Y=1) = 9/14</font></td>
+<td></td>
+<td><font color=darkred>P(Y=0) = 5/14</font></td>
+</tr>
+<tr>
+<td><font color=darkred>P(O=1\</td>
+<td>Y=1) = 4/9&lt;/font&gt;</td>
+<td></td>
+<td>P(O=1\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(O=0\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(O=0\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(S=1\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(S=1\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(S=0\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(S=0\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(J=1\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(J=1\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(J=0\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(J=0\</td>
+<td>Y=0) =</td>
+</tr>
+</tbody>
+</table>
 
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|<font color=darkred>P(Y=1) = 9/14</font>| | <font color=darkred>P(Y=0) = 5/14</font>|
-|<font color=darkred>P(O=1\|Y=1) = 4/9</font>| |P(O=1\|Y=0) = |
-|P(O=0\|Y=1) = | |P(O=0\|Y=0) = |
-|P(S=1\|Y=1) = | |P(S=1\|Y=0) =  |
-|P(S=0\|Y=1) = | |P(S=0\|Y=0) =  |
-|P(J=1\|Y=1) = | |P(J=1\|Y=0) =  |
-|P(J=0\|Y=1) = | |P(J=0\|Y=0) =  |
-
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|0|0|**0**|
-|0|0|1|**0**|
-|0|0|0|**0**|
-|1|1|1|**0**|
-|1|0|0|**0**|
-| | | | | |
-| | | | | |
-|0|1|0|**1**|
-|1|0|1|**1**|
-|1|0|1|**1**|
-|1|1|0|**1**|
-|0|1|1|**1**|
-|0|1|0|**1**|
-|0|1|1|**1**|
-|1|0|1|**1**|
-|0|1|0|**1**|
-
-</td></tr> </table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -14439,42 +14482,63 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> Data </th></tr>
-<tr><td>
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=darkred>P(Y=1) = 9/14</font></td>
+<td></td>
+<td><font color=darkred>P(Y=0) = 5/14</font></td>
+</tr>
+<tr>
+<td><font color=darkred>P(O=1\</td>
+<td>Y=1) = 4/9&lt;/font&gt;</td>
+<td></td>
+<td><font color=darkred> P(O=1\</td>
+<td>Y=0) = 2/5 &lt;/font&gt;</td>
+</tr>
+<tr>
+<td><font color=darkred>P(O=0\</td>
+<td>Y=1) = 5/9 &lt;/font&gt;</td>
+<td></td>
+<td>P(O=0\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(S=1\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(S=1\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(S=0\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(S=0\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(J=1\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(J=1\</td>
+<td>Y=0) =</td>
+</tr>
+<tr>
+<td>P(J=0\</td>
+<td>Y=1) =</td>
+<td></td>
+<td>P(J=0\</td>
+<td>Y=0) =</td>
+</tr>
+</tbody>
+</table>
 
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|<font color=darkred>P(Y=1) = 9/14</font>| | <font color=darkred>P(Y=0) = 5/14</font>|
-|<font color=darkred>P(O=1\|Y=1) = 4/9</font>| | <font color=darkred> P(O=1\|Y=0) = 2/5 </font> |
-|<font color=darkred>P(O=0\|Y=1) = 5/9 </font>| |P(O=0\|Y=0) = |
-|P(S=1\|Y=1) = | |P(S=1\|Y=0) =  |
-|P(S=0\|Y=1) = | |P(S=0\|Y=0) =  |
-|P(J=1\|Y=1) = | |P(J=1\|Y=0) =  |
-|P(J=0\|Y=1) = | |P(J=0\|Y=0) =  |
-
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|0|0|**0**|
-|0|0|1|**0**|
-|0|0|0|**0**|
-|1|1|1|**0**|
-|1|0|0|**0**|
-| | | | | |
-| | | | | |
-|0|1|0|**1**|
-|1|0|1|**1**|
-|1|0|1|**1**|
-|1|1|0|**1**|
-|0|1|1|**1**|
-|0|1|0|**1**|
-|0|1|1|**1**|
-|1|0|1|**1**|
-|0|1|0|**1**|
-
-</td></tr> </table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -14483,42 +14547,63 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> Data </th></tr>
-<tr><td>
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=darkred>P(Y=1) = 9/14</font></td>
+<td></td>
+<td><font color=darkred>P(Y=0) = 5/14</font></td>
+</tr>
+<tr>
+<td><font color=darkred>P(O=1\</td>
+<td>Y=1) = 4/9&lt;/font&gt;</td>
+<td></td>
+<td><font color=darkred> P(O=1\</td>
+<td>Y=0) = 2/5 &lt;/font&gt;</td>
+</tr>
+<tr>
+<td><font color=darkred>P(O=0\</td>
+<td>Y=1) = 5/9 &lt;/font&gt;</td>
+<td></td>
+<td>P(O=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+<tr>
+<td>P(S=1\</td>
+<td>Y=1) = 6/9</td>
+<td></td>
+<td>P(S=1\</td>
+<td>Y=0) = 1/5</td>
+</tr>
+<tr>
+<td>P(S=0\</td>
+<td>Y=1) = 3/9</td>
+<td></td>
+<td>P(S=0\</td>
+<td>Y=0) = 4/5</td>
+</tr>
+<tr>
+<td>P(J=1\</td>
+<td>Y=1) = 5/9</td>
+<td></td>
+<td>P(J=1\</td>
+<td>Y=0) = 2/5</td>
+</tr>
+<tr>
+<td>P(J=0\</td>
+<td>Y=1) = 4/9</td>
+<td></td>
+<td>P(J=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+</tbody>
+</table>
 
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|<font color=darkred>P(Y=1) = 9/14</font>| | <font color=darkred>P(Y=0) = 5/14</font>|
-|<font color=darkred>P(O=1\|Y=1) = 4/9</font>| | <font color=darkred> P(O=1\|Y=0) = 2/5 </font> |
-|<font color=darkred>P(O=0\|Y=1) = 5/9 </font>| |P(O=0\|Y=0) = 3/5|
-|P(S=1\|Y=1) = 6/9| |P(S=1\|Y=0) = 1/5 |
-|P(S=0\|Y=1) = 3/9| |P(S=0\|Y=0) = 4/5 |
-|P(J=1\|Y=1) = 5/9| |P(J=1\|Y=0) = 2/5 |
-|P(J=0\|Y=1) = 4/9| |P(J=0\|Y=0) = 3/5 |
-
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|0|0|**0**|
-|0|0|1|**0**|
-|0|0|0|**0**|
-|1|1|1|**0**|
-|1|0|0|**0**|
-| | | | | |
-| | | | | |
-|0|1|0|**1**|
-|1|0|1|**1**|
-|1|0|1|**1**|
-|1|1|0|**1**|
-|0|1|1|**1**|
-|0|1|0|**1**|
-|0|1|1|**1**|
-|1|0|1|**1**|
-|0|1|0|**1**|
-
-</td></tr> </table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -14527,28 +14612,63 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-predict!">Let's predict!<a class="anchor-link" href="#Let's-predict!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> New Data </th></tr>
-<tr><td>
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=black>P(Y=1) = 9/14</font></td>
+<td></td>
+<td><font color=black>P(Y=0) = 5/14</font></td>
+</tr>
+<tr>
+<td><font color=black>P(O=1\</td>
+<td>Y=1) = 4/9&lt;/font&gt;</td>
+<td></td>
+<td><font color=black> P(O=1\</td>
+<td>Y=0) = 2/5 &lt;/font&gt;</td>
+</tr>
+<tr>
+<td><font color=black>P(O=0\</td>
+<td>Y=1) = 5/9 &lt;/font&gt;</td>
+<td></td>
+<td>P(O=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+<tr>
+<td>P(S=1\</td>
+<td>Y=1) = 6/9</td>
+<td></td>
+<td>P(S=1\</td>
+<td>Y=0) = 1/5</td>
+</tr>
+<tr>
+<td>P(S=0\</td>
+<td>Y=1) = 3/9</td>
+<td></td>
+<td>P(S=0\</td>
+<td>Y=0) = 4/5</td>
+</tr>
+<tr>
+<td>P(J=1\</td>
+<td>Y=1) = 5/9</td>
+<td></td>
+<td>P(J=1\</td>
+<td>Y=0) = 2/5</td>
+</tr>
+<tr>
+<td>P(J=0\</td>
+<td>Y=1) = 4/9</td>
+<td></td>
+<td>P(J=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+</tbody>
+</table>
 
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|<font color=black>P(Y=1) = 9/14</font>| | <font color=black>P(Y=0) = 5/14</font>|
-|<font color=black>P(O=1\|Y=1) = 4/9</font>| | <font color=black> P(O=1\|Y=0) = 2/5 </font> |
-|<font color=black>P(O=0\|Y=1) = 5/9 </font>| |P(O=0\|Y=0) = 3/5|
-|P(S=1\|Y=1) = 6/9| |P(S=1\|Y=0) = 1/5 |
-|P(S=0\|Y=1) = 3/9| |P(S=0\|Y=0) = 4/5 |
-|P(J=1\|Y=1) = 5/9| |P(J=1\|Y=0) = 2/5 |
-|P(J=0\|Y=1) = 4/9| |P(J=0\|Y=0) = 3/5 |
-
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|1|1|<font color=red>?<font>|
-
-
-</td></tr> </table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -14557,32 +14677,62 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-predict!">Let's predict!<a class="anchor-link" href="#Let's-predict!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> New Data </th></tr>
-<tr><td>
-
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|<font color=black>P(Y=1) = 9/14</font>| | <font color=black>P(Y=0) = 5/14</font>|
-|<font color=black>P(O=1\|Y=1) = 4/9</font>| | <font color=black> P(O=1\|Y=0) = 2/5 </font> |
-|<font color=black>P(O=0\|Y=1) = 5/9 </font>| |P(O=0\|Y=0) = 3/5|
-|P(S=1\|Y=1) = 6/9| |P(S=1\|Y=0) = 1/5 |
-|P(S=0\|Y=1) = 3/9| |P(S=0\|Y=0) = 4/5 |
-|P(J=1\|Y=1) = 5/9| |P(J=1\|Y=0) = 2/5 |
-|P(J=0\|Y=1) = 4/9| |P(J=0\|Y=0) = 3/5 |
-
-
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|1|1|<font color=red>?</font>|
-
-
-</td></tr> </table><p>\begin{eqnarray}Y^{\text{new}} &amp;=&amp; \underset{y_k}{\operatorname{argmax}} P(Y=y_k) P(O=0, S = 1, J = 1 | Y=y_k)  \\
-    &amp;=&amp;\underset{y_k}{\operatorname{argmax}} P(Y=y_k) P(O=0| Y=y_k)P(S = 1 | Y=y_k) P( J = 1 | Y=y_k)
-\end{eqnarray}</p>
-<p><font color=blue> P(Y=1) P(O=0| Y=1)P(S = 1 | Y=1) P( J = 1 | Y=1) = 9/14 * 5/9 * 6/9 * 5/9 =0.13</font></p>
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=black>P(Y=1) = 9/14</font></td>
+<td></td>
+<td><font color=black>P(Y=0) = 5/14</font></td>
+</tr>
+<tr>
+<td><font color=black>P(O=1\</td>
+<td>Y=1) = 4/9&lt;/font&gt;</td>
+<td></td>
+<td><font color=black> P(O=1\</td>
+<td>Y=0) = 2/5 &lt;/font&gt;</td>
+</tr>
+<tr>
+<td><font color=black>P(O=0\</td>
+<td>Y=1) = 5/9 &lt;/font&gt;</td>
+<td></td>
+<td>P(O=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+<tr>
+<td>P(S=1\</td>
+<td>Y=1) = 6/9</td>
+<td></td>
+<td>P(S=1\</td>
+<td>Y=0) = 1/5</td>
+</tr>
+<tr>
+<td>P(S=0\</td>
+<td>Y=1) = 3/9</td>
+<td></td>
+<td>P(S=0\</td>
+<td>Y=0) = 4/5</td>
+</tr>
+<tr>
+<td>P(J=1\</td>
+<td>Y=1) = 5/9</td>
+<td></td>
+<td>P(J=1\</td>
+<td>Y=0) = 2/5</td>
+</tr>
+<tr>
+<td>P(J=0\</td>
+<td>Y=1) = 4/9</td>
+<td></td>
+<td>P(J=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -14592,28 +14742,63 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Let's-predict!">Let's predict!<a class="anchor-link" href="#Let's-predict!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
-<tr> <th> Estimated Parameters </th> <th> New Data </th></tr>
-<tr><td>
-
-|$$Y = 1$$| $$~$$  | $$Y = 0$$|
-|--|--|--|
-|<font color=black>P(Y=1) = 9/14</font>| | <font color=black>P(Y=0) = 5/14</font>|
-|<font color=black>P(O=1\|Y=1) = 4/9</font>| | <font color=black> P(O=1\|Y=0) = 2/5 </font> |
-|<font color=black>P(O=0\|Y=1) = 5/9 </font>| |P(O=0\|Y=0) = 3/5|
-|P(S=1\|Y=1) = 6/9| |P(S=1\|Y=0) = 1/5 |
-|P(S=0\|Y=1) = 3/9| |P(S=0\|Y=0) = 4/5 |
-|P(J=1\|Y=1) = 5/9| |P(J=1\|Y=0) = 2/5 |
-|P(J=0\|Y=1) = 4/9| |P(J=0\|Y=0) = 3/5 |
-
-
-</td><td>
-
-| $$O$$| $$S$$ | $$J$$ | $$Y$$  |
-|:-:|:-:|:-:|:-:|
-|0|1|1|<font color=red>?</font>|
-
-
-</td></tr> </table><p>\begin{eqnarray}Y^{\text{new}} &amp;=&amp; \underset{y_k}{\operatorname{argmax}} P(Y=y_k) P(O=0, S = 1, J = 1 | Y=y_k)  \\
+<thead><tr>
+<th>$$Y = 1$$</th>
+<th>$$~$$</th>
+<th>$$Y = 0$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><font color=black>P(Y=1) = 9/14</font></td>
+<td></td>
+<td><font color=black>P(Y=0) = 5/14</font></td>
+</tr>
+<tr>
+<td><font color=black>P(O=1\</td>
+<td>Y=1) = 4/9&lt;/font&gt;</td>
+<td></td>
+<td><font color=black> P(O=1\</td>
+<td>Y=0) = 2/5 &lt;/font&gt;</td>
+</tr>
+<tr>
+<td><font color=black>P(O=0\</td>
+<td>Y=1) = 5/9 &lt;/font&gt;</td>
+<td></td>
+<td>P(O=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+<tr>
+<td>P(S=1\</td>
+<td>Y=1) = 6/9</td>
+<td></td>
+<td>P(S=1\</td>
+<td>Y=0) = 1/5</td>
+</tr>
+<tr>
+<td>P(S=0\</td>
+<td>Y=1) = 3/9</td>
+<td></td>
+<td>P(S=0\</td>
+<td>Y=0) = 4/5</td>
+</tr>
+<tr>
+<td>P(J=1\</td>
+<td>Y=1) = 5/9</td>
+<td></td>
+<td>P(J=1\</td>
+<td>Y=0) = 2/5</td>
+</tr>
+<tr>
+<td>P(J=0\</td>
+<td>Y=1) = 4/9</td>
+<td></td>
+<td>P(J=0\</td>
+<td>Y=0) = 3/5</td>
+</tr>
+</tbody>
+</table>
+<p>\begin{eqnarray}Y^{\text{new}} &amp;=&amp; \underset{y_k}{\operatorname{argmax}} P(Y=y_k) P(O=0, S = 1, J = 1 | Y=y_k)  \\
     &amp;=&amp;\underset{y_k}{\operatorname{argmax}} P(Y=y_k) P(O=0| Y=y_k)P(S = 1 | Y=y_k) P( J = 1 | Y=y_k)
 \end{eqnarray}</p>
 <p><font color=blue> P(Y=1) P(O=0| Y=1)P(S = 1 | Y=1) P( J = 1 | Y=1) = 9/14 * 5/9 * 6/9 * 5/9 =0.132</font></p>
