@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>Lectures_5_Naive_Bayes_pdf_export slides</title>
+<title>Lectures_5_Naive_Bayes-Copy1 slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13202,7 +13202,11 @@ a.anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1><center> 10-315 Introduction to Machine Learning (SCS Majors) <br> Lectures 5: Naive Bayes </center></h1><h2><center> Leila Wehbe <br> Carnegie Mellon University  <br> Machine Learning Department </center></h2><p>Reading: &lt;a href ="<a href="http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;">http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;</a> Generative and Disciminative Classifiers &lt;/a&gt; by Tom Mitchell.</p>
+<h1><center> 10-315 Introduction to Machine Learning (SCS Majors) <br> Lecture 5: Naive Bayes </center></h1><h2><center> Leila Wehbe <br> Carnegie Mellon University  <br> Machine Learning Department </center></h2><p><br></p>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+<p>Reading: &lt;a href ="<a href="http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;">http://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf&quot;&gt;</a> Generative and Disciminative Classifiers &lt;/a&gt; by Tom Mitchell.</p>
 <h4 id="Lecture-outcomes:">Lecture outcomes:<a class="anchor-link" href="#Lecture-outcomes:">&#182;</a></h4><ul>
 <li>Conditional Independence</li>
 <li>Naïve Bayes, Gaussian Naive Bayes</li>
@@ -13451,7 +13455,17 @@ where $X_i$ and $Y$ are boolean random variables</p>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="How-many-parameters-must-we-estimate?">How many parameters must we estimate?<a class="anchor-link" href="#How-many-parameters-must-we-estimate?">&#182;</a></h2><p>Suppose $X =(X_1,X_2, ..., X_d)$
 where $X_i$ and $Y$ are boolean random variables</p>
-<p>How many parameters do we need to estimate to know $P(Y| X1, ... X_d)$?</p>
+<p>How many parameters do we need to estimate to know $P(Y| X_1, ... X_d)$?</p>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-many-parameters-must-we-estimate?">How many parameters must we estimate?<a class="anchor-link" href="#How-many-parameters-must-we-estimate?">&#182;</a></h2><p>Suppose $X =(X_1,X_2, ..., X_d)$
+where $X_i$ and $Y$ are boolean random variables</p>
+<p>How many parameters do we need to estimate to know $P(Y| X_1, ... X_d)$?</p>
 <table>
 <thead><tr>
 <th style="text-align:center">$$X_1$$</th>
@@ -13603,9 +13617,9 @@ where $X_i$ and $Y$ are boolean random variables</p>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Can-we-use-Bayes-Rule-to-reduce-the-number-of-parameters?">Can we use Bayes Rule to reduce the number of parameters?<a class="anchor-link" href="#Can-we-use-Bayes-Rule-to-reduce-the-number-of-parameters?">&#182;</a></h2><p>We used bayes rule last lecture to express marginal and conditional probabilities of the data and parameter $\theta$:</p>
-$$ P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)} $$<p>We can also use it for the conditional distribution of $Y$ given $X$:</p>
+$$ P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)} $$<p>We can also express the conditional distribution of $Y$ given $X$:</p>
 $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$<p>BTW, this notation is a shorthand for:</p>
-$$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{P(X=x_i)} $$
+$$ (\forall i, j) ~ P(Y=y_i|X=x_j) = \frac{P(X=x_j|Y=y_i)P(Y=y_i)}{P(X=x_j)} $$
 </div>
 </div>
 </div></section></section><section><section>
@@ -13613,10 +13627,10 @@ $$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{P(X=x_i)} $$
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Can-we-use-Bayes-Rule-to-reduce-the-number-of-parameters?">Can we use Bayes Rule to reduce the number of parameters?<a class="anchor-link" href="#Can-we-use-Bayes-Rule-to-reduce-the-number-of-parameters?">&#182;</a></h2><p>We used bayes rule last lecture to express marginal and conditional probabilities of the data and parameter $\theta$:</p>
-$$ P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)} $$<p>We can also use it for the conditional distribution of $Y$ given $X$:</p>
+$$ P(\theta|D) = \frac{P(D|\theta)P(\theta)}{P(D)} $$<p>We can also express the conditional distribution of $Y$ given $X$:</p>
 $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$<p>BTW, this notation is a shorthand for:</p>
-$$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{P(X=x_i)} $$<p>Equivalently:</p>
-<p><font color='blue'>$$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{{\sum_k P(X=x_i|Y=y_k)P(Y=y_k)}} $$</font></p>
+$$ (\forall i, j) ~ P(Y=y_i|X=x_j) = \frac{P(X=x_j|Y=y_i)P(Y=y_i)}{P(X=x_j)} $$<p>Equivalently:</p>
+<p><font color='blue'>$$ (\forall i, j) ~ P(Y=y_i|X=x_j) = \frac{P(X=x_j|Y=y_i)P(Y=y_i)}{{\sum_k P(X=x_i|Y=y_k)P(Y=y_k)}} $$</font></p>
 
 </div>
 </div>
@@ -13625,9 +13639,9 @@ $$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{P(X=x_i)} $$<
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Does-Bayes-Rule-help-reduce-the-number-of-parameters?">Does Bayes Rule help reduce the number of parameters?<a class="anchor-link" href="#Does-Bayes-Rule-help-reduce-the-number-of-parameters?">&#182;</a></h2>$$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$<ul>
-<li>$P(X)$ might be expensive to estimate, but it's the same for both classes, so we might be able to avoid computing it.</li>
+<li>$P(X)$ is the same for both classes, so we might be able to avoid computing it (also, I can get it for free if I already know $P(X|Y)$ and $P(Y)$).</li>
 <li>$P(Y)$ is only 1 parameter.</li>
-<li>What about $P(X|Y)$? i.e. $P(X_1,X_2,...X_d)$. How many parameters do we need?</li>
+<li>What about $P(X|Y)$? i.e. $P(X_1,X_2,...X_d|Y)$. How many parameters do we need?</li>
 </ul>
 
 </div>
@@ -13636,7 +13650,7 @@ $$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{P(X=x_i)} $$<
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d)$?">How many parameters do we need for $P(X_1,X_2,...X_d)$?<a class="anchor-link" href="#How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d)$?">&#182;</a></h2><table>
+<h2 id="How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d|Y)$?">How many parameters do we need for $P(X_1,X_2,...X_d|Y)$?<a class="anchor-link" href="#How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d|Y)$?">&#182;</a></h2><table>
 <thead><tr>
 <th style="text-align:center">$$Y$$</th>
 <th style="text-align:center">$$X_1$$</th>
@@ -13725,7 +13739,7 @@ $$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{P(X=x_i)} $$<
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d)$?">How many parameters do we need for $P(X_1,X_2,...X_d)$?<a class="anchor-link" href="#How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d)$?">&#182;</a></h2><table>
+<h2 id="How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d|Y)$?">How many parameters do we need for $P(X_1,X_2,...X_d|Y)$?<a class="anchor-link" href="#How-many-parameters-do-we-need-for-$P(X_1,X_2,...X_d|Y)$?">&#182;</a></h2><table>
 <thead><tr>
 <th style="text-align:center">$$Y$$</th>
 <th style="text-align:center">$$X_1$$</th>
@@ -13815,7 +13829,7 @@ $$ (\forall i, j) ~ P(Y=y_i|X=x_i) = \frac{P(X=x_i|Y=y_i)P(Y=y_i)}{P(X=x_i)} $$<
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Does-Bayes-Rule-help-reduce-the-number-of-parameters?">Does Bayes Rule help reduce the number of parameters?<a class="anchor-link" href="#Does-Bayes-Rule-help-reduce-the-number-of-parameters?">&#182;</a></h2>$$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$<ul>
-<li>$P(X)$ is the same for both classes, so we might be able to avoid computing it (also, I can get it for free if I know $P(X|Y)$ and $P(Y)$).</li>
+<li>$P(X)$ is the same for both classes, so we might be able to avoid computing it (also, I can get it for free if I already know $P(X|Y)$ and $P(Y)$).</li>
 <li>$P(Y)$ is only 1 parameter.</li>
 <li>$P(X_1,X_2,...X_d|Y)$: $2(2^d-1)$ parameters</li>
 </ul>
@@ -13873,7 +13887,7 @@ $$P(X|Y,Z) = P(X|Z)$$<p>For example:  $P(\text{thunder}|\text{rain}, \text{light
 <h3 id="The-Na&#239;ve-Bayes-Algorithm">The Na&#239;ve Bayes Algorithm<a class="anchor-link" href="#The-Na&#239;ve-Bayes-Algorithm">&#182;</a></h3><p>Naïve Bayes is a classifier that assumes conditional independence of the variables $X_i$ given the label $Y$. For example: $P(X_1|X_2,Y) = P(X_1|Y)$</p>
 <p>How does this assumption simplify $P(X_1,X_2|Y)$?</p>
 \begin{eqnarray}
-P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2,Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
+P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2|Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
 \end{eqnarray}<p></p>
 
 </div>
@@ -13885,8 +13899,8 @@ P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2,Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(cha
 <h3 id="The-Na&#239;ve-Bayes-Algorithm">The Na&#239;ve Bayes Algorithm<a class="anchor-link" href="#The-Na&#239;ve-Bayes-Algorithm">&#182;</a></h3><p>Naïve Bayes is a classifier that assumes conditional independence of the variables $X_i$ given the label $Y$. For example: $P(X_1|X_2,Y) = P(X_1|Y)$</p>
 <p>How does this assumption simplify $P(X_1,X_2|Y)$?</p>
 \begin{eqnarray}
-P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2,Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
-&amp;=&amp; P(X_1|,Y)P(X_2,Y) ~ ~ ~ \text{(conditional independence)}
+P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2|Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
+&amp;=&amp; P(X_1|Y)P(X_2|Y) ~ ~ ~ \text{(conditional independence)}
 \end{eqnarray}<p></p>
 
 </div>
@@ -13898,8 +13912,8 @@ P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2,Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(cha
 <h3 id="The-Na&#239;ve-Bayes-Algorithm">The Na&#239;ve Bayes Algorithm<a class="anchor-link" href="#The-Na&#239;ve-Bayes-Algorithm">&#182;</a></h3><p>Naïve Bayes is a classifier that assumes conditional independence of the variables $X_i$ given the label $Y$. For example: $P(X_1|X_2,Y) = P(X_1|Y)$</p>
 <p>How does this assumption simplify $P(X_1,X_2|Y)$?</p>
 \begin{eqnarray}
-P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2,Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
-&amp;=&amp; P(X_1|,Y)P(X_2,Y) ~ ~ ~ \text{(conditional independence)}
+P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2|Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
+&amp;=&amp; P(X_1|Y)P(X_2|Y) ~ ~ ~ \text{(conditional independence)}
 \end{eqnarray}<p></p>
 <p>In general:</p>
 \begin{eqnarray}
@@ -13914,15 +13928,15 @@ P(X_1,...,X_d|Y) &amp;=&amp;\prod_i P(X_i|,Y)
 <h3 id="The-Na&#239;ve-Bayes-Algorithm">The Na&#239;ve Bayes Algorithm<a class="anchor-link" href="#The-Na&#239;ve-Bayes-Algorithm">&#182;</a></h3><p>Naïve Bayes is a classifier that assumes conditional independence of the variables $X_i$ given the label $Y$. For example: $P(X_1|X_2,Y) = P(X_1|Y)$</p>
 <p>How does this assumption simplify $P(X_1,X_2|Y)$?</p>
 \begin{eqnarray}
-P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2,Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
-&amp;=&amp; P(X_1|,Y)P(X_2,Y) ~ ~ ~ \text{(conditional independence)}
+P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2|Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
+&amp;=&amp; P(X_1|Y)P(X_2|Y) ~ ~ ~ \text{(conditional independence)}
 \end{eqnarray}<p></p>
 <p>In general:</p>
 \begin{eqnarray}
 P(X_1,...,X_d|Y) &amp;=&amp;\prod_i P(X_i|,Y) 
 \end{eqnarray}<p>How many parameters do we need to describe $P(X_1...X_n|Y)$?</p>
 <ul>
-<li>Without the conditional independence assumption: <font color=blue> $2(2^d-1)$ and 1</font></li>
+<li>Without the conditional independence assumption: <font color=blue> $2(2^d-1)$</font></li>
 <li>With the  conditional independence assumption: </li>
 </ul>
 
@@ -13935,18 +13949,28 @@ P(X_1,...,X_d|Y) &amp;=&amp;\prod_i P(X_i|,Y)
 <h3 id="The-Na&#239;ve-Bayes-Algorithm">The Na&#239;ve Bayes Algorithm<a class="anchor-link" href="#The-Na&#239;ve-Bayes-Algorithm">&#182;</a></h3><p>Naïve Bayes is a classifier that assumes conditional independence of the variables $X_i$ given the label $Y$. For example: $P(X_1|X_2,Y) = P(X_1|Y)$</p>
 <p>How does this assumption simplify $P(X_1,X_2|Y)$?</p>
 \begin{eqnarray}
-P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2,Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
-&amp;=&amp; P(X_1|,Y)P(X_2,Y) ~ ~ ~ \text{(conditional independence)}
+P(X_1,X_2|Y) &amp;=&amp; P(X_1|X_2,Y)P(X_2|Y) ~~~~~~~~~~~~~~~~~~~~~~~ \text{(chain rule)} \\
+&amp;=&amp; P(X_1|Y)P(X_2|Y) ~ ~ ~ \text{(conditional independence)}
 \end{eqnarray}<p></p>
 <p>In general:</p>
 \begin{eqnarray}
 P(X_1,...,X_d|Y) &amp;=&amp;\prod_i P(X_i|,Y) 
 \end{eqnarray}<p>How many parameters do we need to describe $P(X_1...X_n|Y)$?</p>
 <ul>
-<li>Without the conditional independence assumption: <font color=blue> $2(2^d-1)$ and 1</font></li>
-<li>With the  conditional independence assumption: <font color=blue> $2d$ and 1</font></li>
+<li>Without the conditional independence assumption: <font color=blue> $2(2^d-1)$</font></li>
+<li>With the  conditional independence assumption: <font color=blue> $2d$</font></li>
 </ul>
 
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Na&#239;ve-Bayes-Algorithm">The Na&#239;ve Bayes Algorithm<a class="anchor-link" href="#The-Na&#239;ve-Bayes-Algorithm">&#182;</a></h3><p>Naïve Bayes assumes conditional independence of the $X_i$'s: $P(X_1,...,X_d|Y) =\prod_i P(X_i|,Y)$</p>
+<p><font color=darkred>  (more on this assumption soon!) </font></p>
+<p>Using Bayes rule with that assumption:</p>
+$$ P(Y=y_k|X_1,...,X_d) = \frac{P(Y=y_k) \prod_i P(X_i|Y=y_k) }{P(X)} $$
 </div>
 </div>
 </div></section></section><section><section>
@@ -14029,8 +14053,8 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Na&#239;ve-Bayes---Training-Phase---Discrete-$X_i$---Maximum-(Conditional)-Likelihood-Estimation">Na&#239;ve Bayes - Training Phase - Discrete $X_i$ - Maximum (Conditional) Likelihood Estimation<a class="anchor-link" href="#Na&#239;ve-Bayes---Training-Phase---Discrete-$X_i$---Maximum-(Conditional)-Likelihood-Estimation">&#182;</a></h3><p>$P(X|Y=y_k)$ has parameters $\theta_{ijk}$, one for each value $x_{ij}$ of each $X_i$.</p>
-<p>To follow the MLE principle, we pick the parameters $\theta$ that maximizes the <strong>conditional</strong> likelihood of the data given the parameters.</p>
+<h3 id="Na&#239;ve-Bayes---Training-Phase---Discrete-$X_i$---Maximum-(Conditional)-Likelihood-Estimation">Na&#239;ve Bayes - Training Phase - Discrete $X_i$ - Maximum (Conditional) Likelihood Estimation<a class="anchor-link" href="#Na&#239;ve-Bayes---Training-Phase---Discrete-$X_i$---Maximum-(Conditional)-Likelihood-Estimation">&#182;</a></h3><p>$P(X|Y=y_k)$ has parameters $\theta_{ijk}$, one for each value $x_{ij}$ of each $X_i$. $P(Y)$ has parameters $\pi$.</p>
+<p>To follow the MLE principle, we pick the parameters $\pi$ and $\theta$ that maximizes the (<strong>conditional</strong>) likelihood of the data given the parameters.</p>
 <p>To estimate:</p>
 <ul>
 <li>Compute <font color=blue>  $$\hat\pi_k = \hat P(Y=y_k) = \frac{\# D(Y=y_k)}{|D|}$$</font></li>
@@ -14288,58 +14312,58 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>$$P(Y=1) = $$</td>
+<td>P(Y=1) =</td>
 <td></td>
-<td>$$P(Y=0) = $$</td>
+<td>P(Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(O=1</td>
-<td>Y=1) = $$</td>
+<td>P(O=1\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(O=1</td>
-<td>Y=0) = $$</td>
+<td>P(O=1\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(O=0</td>
-<td>Y=1) = $$</td>
+<td>P(O=0\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(O=0</td>
-<td>Y=0) = $$</td>
+<td>P(O=0\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(S=1</td>
-<td>Y=1) = $$</td>
+<td>P(S=1\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(S=1</td>
-<td>Y=0) = $$</td>
+<td>P(S=1\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(S=0</td>
-<td>Y=1) = $$</td>
+<td>P(S=0\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(S=0</td>
-<td>Y=0) = $$</td>
+<td>P(S=0\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(J=1</td>
-<td>Y=1) = $$</td>
+<td>P(J=1\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(J=1</td>
-<td>Y=0) = $$</td>
+<td>P(J=1\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(J=0</td>
-<td>Y=1) = $$</td>
+<td>P(J=0\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(J=0</td>
-<td>Y=0) = $$</td>
+<td>P(J=0\</td>
+<td>Y=0) =</td>
 </tr>
 </tbody>
 </table>
@@ -14353,58 +14377,58 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><font color=darkred>$$P(Y=1) = 9/14$$</font></td>
+<td><font color=darkred>P(Y=1) = 9/14</font></td>
 <td></td>
-<td><font color=darkred>$$P(Y=0) = 5/14$$</font></td>
+<td><font color=darkred>P(Y=0) = 5/14</font></td>
 </tr>
 <tr>
-<td>$$P(O=1</td>
-<td>Y=1) = $$</td>
+<td>P(O=1\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(O=1</td>
-<td>Y=0) = $$</td>
+<td>P(O=1\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(O=0</td>
-<td>Y=1) = $$</td>
+<td>P(O=0\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(O=0</td>
-<td>Y=0) = $$</td>
+<td>P(O=0\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(S=1</td>
-<td>Y=1) = $$</td>
+<td>P(S=1\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(S=1</td>
-<td>Y=0) = $$</td>
+<td>P(S=1\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(S=0</td>
-<td>Y=1) = $$</td>
+<td>P(S=0\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(S=0</td>
-<td>Y=0) = $$</td>
+<td>P(S=0\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(J=1</td>
-<td>Y=1) = $$</td>
+<td>P(J=1\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(J=1</td>
-<td>Y=0) = $$</td>
+<td>P(J=1\</td>
+<td>Y=0) =</td>
 </tr>
 <tr>
-<td>$$P(J=0</td>
-<td>Y=1) = $$</td>
+<td>P(J=0\</td>
+<td>Y=1) =</td>
 <td></td>
-<td>$$P(J=0</td>
-<td>Y=0) = $$</td>
+<td>P(J=0\</td>
+<td>Y=0) =</td>
 </tr>
 </tbody>
 </table>
@@ -14418,9 +14442,9 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
@@ -14483,9 +14507,9 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
@@ -14548,9 +14572,9 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-train!">Let's train!<a class="anchor-link" href="#Let's-train!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
@@ -14613,9 +14637,9 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-predict!">Let's predict!<a class="anchor-link" href="#Let's-predict!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
@@ -14668,6 +14692,23 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 </tr>
 </tbody>
 </table>
+<table>
+<thead><tr>
+<th style="text-align:center">$$O$$</th>
+<th style="text-align:center">$$S$$</th>
+<th style="text-align:center">$$J$$</th>
+<th style="text-align:center">$$Y$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><font color=red>?<font></td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -14678,9 +14719,9 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-predict!">Let's predict!<a class="anchor-link" href="#Let's-predict!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
@@ -14733,6 +14774,27 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 </tr>
 </tbody>
 </table>
+<table>
+<thead><tr>
+<th style="text-align:center">$$O$$</th>
+<th style="text-align:center">$$S$$</th>
+<th style="text-align:center">$$J$$</th>
+<th style="text-align:center">$$Y$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><font color=red>?<font></td>
+</tr>
+</tbody>
+</table>
+<p>\begin{eqnarray}Y^{\text{new}} &amp;=&amp; \underset{y_k}{\operatorname{argmax}} P(Y=y_k) P(O=0, S = 1, J = 1 | Y=y_k)  \\
+    &amp;=&amp;\underset{y_k}{\operatorname{argmax}} P(Y=y_k) P(O=0| Y=y_k)P(S = 1 | Y=y_k) P( J = 1 | Y=y_k)
+\end{eqnarray}</p>
+<p><font color=blue> P(Y=1) P(O=0| Y=1)P(S = 1 | Y=1) P( J = 1 | Y=1) = 9/14 * 5/9 * 6/9 * 5/9 =0.13</font></p>
 
 </div>
 </div>
@@ -14743,9 +14805,9 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <h2 id="Let's-predict!">Let's predict!<a class="anchor-link" href="#Let's-predict!">&#182;</a></h2><p>O= Is older than 35, S= Is a student, J = Birthday before July 1, Y= buys computer</p>
 <table>
 <thead><tr>
-<th>$$Y = 1$$</th>
-<th>$$~$$</th>
-<th>$$Y = 0$$</th>
+<th>$Y = 1$</th>
+<th>$~$</th>
+<th>$Y = 0$</th>
 </tr>
 </thead>
 <tbody>
@@ -14795,6 +14857,23 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 <td></td>
 <td>P(J=0\</td>
 <td>Y=0) = 3/5</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead><tr>
+<th style="text-align:center">$$O$$</th>
+<th style="text-align:center">$$S$$</th>
+<th style="text-align:center">$$J$$</th>
+<th style="text-align:center">$$Y$$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><font color=red>?<font></td>
 </tr>
 </tbody>
 </table>
@@ -14807,7 +14886,7 @@ $$ Y^{\text{new}} \leftarrow \underset{y_k}{\operatorname{argmax}} P(Y=y_k) \pro
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14819,7 +14898,7 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$$$P(X) = \sum_k P(X|Y=y_k)P(Y=y_k)$$<p><fo
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14838,7 +14917,7 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$$$P(X) = \sum_k P(X|Y=y_k)P(Y=y_k)$$<p><fo
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14851,7 +14930,7 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$$$P(X) = \sum_k P(X|Y=y_k)P(Y=y_k)$$<p><fo
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14867,7 +14946,7 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$$$P(X) = \sum_k P(X|Y=y_k)P(Y=y_k)$$<p><fo
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14885,7 +14964,7 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$$$P(X) = \sum_k P(X|Y=y_k)P(Y=y_k)$$<p><fo
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14908,7 +14987,7 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$$$P(X) = \sum_k P(X|Y=y_k)P(Y=y_k)$$<p><fo
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14933,7 +15012,24 @@ $$ P(Y|X) = \frac{P(X|Y)P(Y)}{P(X)} $$$$P(X) = \sum_k P(X|Y=y_k)P(Y=y_k)$$<p><fo
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Na&#239;ve-Bayes-observation-1">Na&#239;ve Bayes observation 1<a class="anchor-link" href="#Na&#239;ve-Bayes-observation-1">&#182;</a></h2><p>Usually the $X_i$ are not conditionally independent:
+$$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
+<ul>
+<li><p>Even if the "naïve" conditional independence assumption is not true in the data, Naïve Bayes might still perform well and is used anyways</p>
+<ul>
+<li>often the right classification, even when not the right probability (see [Domingos&amp;Pazzani, 1996])</li>
+</ul>
+<p><br></p>
+</li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14952,24 +15048,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Na&#239;ve-Bayes-observation-1">Na&#239;ve Bayes observation 1<a class="anchor-link" href="#Na&#239;ve-Bayes-observation-1">&#182;</a></h2><p>Usually the $X_i$ are not conditionally independent:
-$$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
-<ul>
-<li><p>Even if the "naïve" conditional independence assumption is not true in the data, Naïve Bayes might still perform well and is used anyways</p>
-<ul>
-<li>often the right classification, even when not the right probability (see [Domingos&amp;Pazzani, 1996])</li>
-</ul>
-<p><br></p>
-</li>
-</ul>
-
-</div>
-</div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14986,7 +15065,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14999,7 +15078,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15009,7 +15088,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15021,7 +15100,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15038,7 +15117,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15051,7 +15130,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15060,7 +15139,8 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 \begin{eqnarray} 
 \frac{P(Y=1|X_1...X_d)}{P(Y=0|X_1...X_d)} = \frac{P(Y=1)P(X_1...X_d|Y=1)}{P(Y=0)P(X_1...X_d|Y=0)} ~ ~ ~ ~ ~ &gt; \text{ or } &lt;1?
 \end{eqnarray}<p></p>
-<p>Taking the log of this ratio prevents <strong>underflow</strong> and expresses the decision rule in a useful way (we will see later more reasons why it's useful).</p>
+<p>Taking the log of this ratio prevents <strong>underflow</strong> and expresses the decision rule in a useful way</p>
+<p>(we will see later more reasons why it's useful).</p>
 \begin{eqnarray} 
 \ln \frac{P(Y=1|X_1...X_d)}{P(Y=0|X_1...X_d)} = \ln \frac{P(Y=1)}{P(Y=0)} + \sum_i\ln \frac{P(X_i|Y=1)}{P(X_i|Y=0)}  ~ ~ ~ ~ ~ &gt; \text{ or } &lt;0?
 \end{eqnarray}<p></p>
@@ -15076,7 +15156,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15089,7 +15169,7 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15098,19 +15178,17 @@ $$P(X_1,...,X_d|Y) \ne\prod_i P(X_i|,Y)$$</p>
 <li>for example, $X_i$ = birthdate. $xi$ = Jan_25_1992.</li>
 </ul>
 <p><br></p>
-<p>• Why worry about just one parameter out of many?</p>
-$$ P(Y=y_k)P(X_1|Y=y_k)  P(X_2|Y=y_k)  ... P(X_d|Y=y_k) $$
-<pre><code>    What happens if one of the $P(X_i|Y=y_k)$ is zero?
-
-
-</code></pre>
+<ul>
+<li>Why worry about just one parameter out of many?</li>
+</ul>
+$$ P(Y=y_k)P(X_1|Y=y_k)  P(X_2|Y=y_k)  ... P(X_d|Y=y_k) $$<p>What happens if one of the $P(X_i|Y=y_k)$ is zero?</p>
 <ul>
 <li>What can be done to address this?</li>
 </ul>
 
 </div>
 </div>
-</div></section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -15131,7 +15209,7 @@ $$ P(Y=y_k)P(X_1|Y=y_k)  P(X_2|Y=y_k)  ... P(X_d|Y=y_k) $$
 <li>For each label $y_k$:<ul>
 <li>For each variable $X_i$:<ul>
 <li>For each value $x_{ij}$ that $X_i$ can take, compute:
-<font color=blue>   $$\hat\theta_{ijk}= \hat P(X_i=x_{ij}|Y=y_k) = \frac{\# D(X_i=x_{ij} \wedge Y=y_k)}{\# D(Y=y_k)}$$ </font>.</li>
+<font color=blue>   $$\hat\theta_{ijk}= \hat P(X_i=x_{ij}|Y=y_k) = \frac{\# D(X_i=x_{ij} \wedge Y=y_k)}{\# D(Y=y_k)}.$$ </font></li>
 </ul>
 </li>
 </ul>
@@ -15187,6 +15265,21 @@ $$ P(Y=y_k)P(X_1|Y=y_k)  P(X_2|Y=y_k)  ... P(X_d|Y=y_k) $$
 </li>
 </ul>
 </li>
+</ul>
+
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-you-should-know">What you should know<a class="anchor-link" href="#What-you-should-know">&#182;</a></h2><p>Naïve Bayes classifier</p>
+<ul>
+<li>What’s the assumption</li>
+<li>Why we use it</li>
+<li>How do we learn it</li>
+<li>The different observations we made about it</li>
+<li>Why is Bayesian estimation important</li>
 </ul>
 
 </div>
