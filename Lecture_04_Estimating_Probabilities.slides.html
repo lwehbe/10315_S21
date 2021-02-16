@@ -13998,7 +13998,7 @@ $$P(\theta) = \frac{\prod_{i=1}^k \theta_i^{\beta_i-1}}{B(\beta_1,...\beta_k)}.$
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Continuous-Variables">Continuous Variables<a class="anchor-link" href="#Continuous-Variables">&#182;</a></h3><h4 id="Likelihood-and-prior-are-normal-distributions.">Likelihood and prior are normal distributions.<a class="anchor-link" href="#Likelihood-and-prior-are-normal-distributions.">&#182;</a></h4><p>Assume $X\sim\text{N}(\mu, \sigma)$</p>
-$$p(x|\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \text{e}^{-\frac{(x-\mu)^2}{\sigma^2}}$$
+$$p(x|\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \text{e}^{- \frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}}$$
 </div>
 </div>
 </div>
@@ -14059,8 +14059,8 @@ $$p(x|\mu,\sigma) = \frac{1}{\sigma\sqrt{2\pi}} \text{e}^{-\frac{(x-\mu)^2}{\sig
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="MLE-estimation-for-mean-of-gaussian">MLE estimation for mean of gaussian<a class="anchor-link" href="#MLE-estimation-for-mean-of-gaussian">&#182;</a></h3><p>You observe $n$ IID samples $D = \{x_1, x_2, ... x_n\}$.</p>
 \begin{eqnarray}
-P(D|\mu,\sigma)&amp;=&amp;\prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} ~ \text{exp} \big( {-\frac{(x_i-\mu)^2}{\sigma^2}}\big)\\
-&amp;=&amp; \big(\frac{1}{\sigma\sqrt{2\pi}}\big)^n  ~ ~ \text{exp} \big( {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{\sigma^2}}\big )\\
+P(D|\mu,\sigma)&amp;=&amp;\prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} ~ \text{exp} \big( {-\frac{(x_i-\mu)^2}{2\sigma^2}}\big)\\
+&amp;=&amp; \big(\frac{1}{\sigma\sqrt{2\pi}}\big)^n  ~ ~ \text{exp} \big( {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{2\sigma^2}}\big )\\
 \end{eqnarray}<p>We want to find $\mu_{\text{MLE}}$:</p>
 
 </div>
@@ -14071,11 +14071,11 @@ P(D|\mu,\sigma)&amp;=&amp;\prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} ~ \text{exp}
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="MLE-estimation-for-mean-of-gaussian">MLE estimation for mean of gaussian<a class="anchor-link" href="#MLE-estimation-for-mean-of-gaussian">&#182;</a></h3><p>You observe $n$ IID samples $D = \{x_1, x_2, ... n_n\}$.</p>
 \begin{eqnarray}
-P(D|\mu,\sigma)&amp;=&amp;\prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} ~ \text{exp} \big( {-\frac{(x_i-\mu)^2}{\sigma^2}}\big)\\
-&amp;=&amp; \big(\frac{1}{\sigma\sqrt{2\pi}}\big)^n  ~ ~ \text{exp} \big( {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{\sigma^2}}\big )\\
+P(D|\mu,\sigma)&amp;=&amp;\prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}} ~ \text{exp} \big( {-\frac{(x_i-\mu)^2}{2\sigma^2}}\big)\\
+&amp;=&amp; \big(\frac{1}{\sigma\sqrt{2\pi}}\big)^n  ~ ~ \text{exp} \big( {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{2\sigma^2}}\big )\\
 \end{eqnarray}<p>We want to find $\mu_{\text{MLE}}$:</p>
 \begin{eqnarray}
-\frac{d}{d \mu}\ln P(D|\mu,\sigma) =  \frac{d}{d \mu} \ln \text{exp} \big( {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{\sigma^2}}\big) =  \frac{d}{d \mu} {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{\sigma^2}} = 2 \frac{\sum_{i=1}^n(x_i-\mu)} {\sigma^2} \\
+\frac{d}{d \mu}\ln P(D|\mu,\sigma) =  \frac{d}{d \mu} \ln \text{exp} \big( {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{2\sigma^2}}\big) =  \frac{d}{d \mu} {-\frac{ \sum_{i=1}^n(x_i-\mu)^2}{2\sigma^2}} =  \frac{\sum_{i=1}^n(x_i-\mu)} {\sigma^2} \\
 \end{eqnarray}<p>Setting to $0$ and solving gives $$ \mu_{\text{MLE} } = \frac{\sum_{i=1}^n x_i} {n}$$</p>
 
 </div>
