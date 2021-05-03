@@ -13693,10 +13693,10 @@ U shape: (569, 569), S shape: (30,), V shape: (30, 30)
 <h2 id="Alternative-Interpretation-of-PCA:-Minimizing-the-Reconstruction-Error">Alternative Interpretation of PCA: Minimizing the Reconstruction Error<a class="anchor-link" href="#Alternative-Interpretation-of-PCA:-Minimizing-the-Reconstruction-Error">&#182;</a></h2><ul>
 <li>We saw that the reconstruction of the data into the original subspace, given a vector $v$, is:   </li>
 </ul>
-$$ Xv v^\top \in \mathbb{R}^{n}$$<ul>
+$$ Xv v^\top \in \mathbb{R}^{n\times p}$$<ul>
 <li>The reconstruction error is:</li>
 </ul>
-$$ \frac{1}{n} ||X - Xv v^\top||_2^2 = \frac{1}{n} \sum_{i=1}^n (x_i - (x_i^\top v) v)^2$$<ul>
+$$ \frac{1}{n} ||X - Xv v^\top||_2^2 = \frac{1}{n} \sum_{i=1}^n ||x_i - (x_i^\top v) v||_2^2$$<ul>
 <li>The first pricipal component will be the vector that minimizes the reconstruction error:</li>
 </ul>
 \begin{eqnarray}
@@ -13782,7 +13782,7 @@ From <a href="http://www.cs.cmu.edu/~ninamf/courses/315sp19/lectures/4_15-PCA.pd
     <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="mf">0.93</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.</span><span class="p">)</span>
     
     
-<span class="n">faces</span><span class="o">=</span> <span class="n">fetch_olivetti_faces</span><span class="p">(</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>                                <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
+<span class="n">faces</span><span class="o">=</span> <span class="n">fetch_olivetti_faces</span><span class="p">(</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">rng</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14127,15 +14127,14 @@ require(
 
         // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            center: false,
-            transition: "slide",
-            width:1200,
-            height:900,
-            margin: 0.05,
-
+            controls: true,
+            progress: true,
+            history: true,
+            center: false,
+            transition: "slide",
+            width:1200,
+            height:900,
+            margin: 0.05,
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
